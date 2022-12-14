@@ -2,7 +2,7 @@ name: Bump version on master
 on:
   push:
     branches:
-      - main
+      - dev-action
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -17,4 +17,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: false
         INITIAL_VERSION: 1.0.0
+        PRERELEASE: true
         PRERELEASE_SUFFIX: 0.0
