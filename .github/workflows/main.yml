@@ -1,16 +1,18 @@
-name: Auto.Tag
-
-on: 
-- push
-
+name: Bump version
+on:
+  push:
+    branches:
+      - dev-action
 jobs:
-  tag:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: 
-        - 12
-    steps: 
-    - uses: phish108/autotag-action@1.1.52
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN}}
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: false
