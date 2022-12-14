@@ -17,4 +17,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: false
         INITIAL_VERSION: 0.0.0
-        TAG_CONTEXT: dev-action
+        TAG_CONTEXT: branch
