@@ -19,8 +19,8 @@ jobs:
         git fetch --tags
         tagFmt="^0.[0-9]+\.[0-9]+$"
         tag="$(git for-each-ref --sort=-v:refname --format '%(refname:lstrip=2)' | grep -E "$tagFmt" | head -n 1)"
-#        [[ "$tag" =~ ^0.([0-9]+)\.([0-9]+)$ ]]
-#        minor=${BASH_REMATCH[1]}
+        [[ "$tag" =~ ^0.([0-9]+)\.([0-9]+)$ ]]
+        minor=${BASH_REMATCH[1]}
 
 #        git tag -f "0.$(($minor+1)).0"
 #        git push -f origin "0.$(($minor+1)).0"
