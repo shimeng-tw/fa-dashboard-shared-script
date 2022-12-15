@@ -1,8 +1,11 @@
 name: version bumper main on pull request
 on:
   pull_request:
+    types:
+      - closed
     branches:
-      - main
+      - master
+
 
 jobs:
   build:
